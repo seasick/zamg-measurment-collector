@@ -24,4 +24,4 @@ jobs:
       with:
         add: 'data'
         default_author: github_actions
-        message: 'chore: update data'
+        message: 'chore: add measurment data'
