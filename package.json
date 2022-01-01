@@ -1,0 +1,17 @@
+{
+  "name": "zamg-measurment-collector",
+  "version": "0.0.1",
+  "description": "Collect hourly ZAMG measurements",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Clemens Solar",
+  "license": "MIT",
+  "dependencies": {
+    "papaparse": "^5.3.1"
+  }
+}
