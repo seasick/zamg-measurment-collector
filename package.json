@@ -8,11 +8,16 @@
   },
   "scripts": {
     "collect": "node bin/collect.js",
+    "lint": "eslint .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Clemens Solar",
   "license": "MIT",
   "dependencies": {
     "papaparse": "^5.3.1"
+  },
+  "devDependencies": {
+    "eslint": "^8.6.0",
+    "eslint-config-google": "^0.14.0"
   }
 }
