@@ -7,6 +7,7 @@
     "lib": "lib"
   },
   "scripts": {
+    "collect": "node bin/collect.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Clemens Solar",
