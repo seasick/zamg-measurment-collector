@@ -3,13 +3,12 @@ const {Zamg} = require('../');
 const {access, readFile, writeFile} = require('fs/promises');
 
 
-
-(async() => {
+(async () => {
   const zamg = new Zamg();
 
   console.log('Request current ZAMG measurements.');
 
-  let result = await zamg.get();
+  const result = await zamg.get();
   let storeData = true;
   let storecsv = result.responseBody;
 
@@ -44,5 +43,4 @@ const {access, readFile, writeFile} = require('fs/promises');
   if (storeData) {
     await writeFile(fileName, storecsv, {flag: 'a'});
   }
-
 })();
