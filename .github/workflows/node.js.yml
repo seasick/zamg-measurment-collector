@@ -3,7 +3,7 @@ name: Collect
 on:
   workflow_dispatch:
   schedule:
-    - cron: "15 * * * *"
+    - cron: "15,30 * * * *"
 
 jobs:
   collect:
