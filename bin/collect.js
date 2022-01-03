@@ -8,13 +8,10 @@ const {access, readFile, writeFile} = require('fs/promises');
 
   console.log('Request current ZAMG measurements.');
 
-  const result = await zamg.get();
+  let storecsv = await zamg.get();
+  const parsed = zamg.parse(storecsv);
+  const fileName = `data/${parsed[0].Datum}.csv`;
   let storeData = true;
-  let storecsv = result.responseBody;
-
-  // TODO Extract date from result
-
-  const fileName = `data/${result.parsed[0].Datum}.csv`;
   let exists = false;
 
   try {
