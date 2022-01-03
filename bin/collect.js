@@ -39,5 +39,6 @@ const {access, readFile, writeFile} = require('fs/promises');
 
   if (storeData) {
     await writeFile(fileName, storecsv, {flag: 'a'});
+    console.log(`Write data for ${parsed[0].Datum} ${parsed[0].Zeit}`);
   }
 })();
