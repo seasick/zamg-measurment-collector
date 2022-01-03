@@ -5,14 +5,20 @@ const {access, readFile, writeFile} = require('fs/promises');
 
 (async () => {
   const zamg = new Zamg();
-
-  console.log('Request current ZAMG measurements.');
-
-  let storecsv = await zamg.get();
-  const parsed = zamg.parse(storecsv);
-  const fileName = `data/${parsed[0].Datum}.csv`;
   let storeData = true;
   let exists = false;
+
+  console.log('Request current ZAMG measurements.');
+  let storecsv = await zamg.get();
+
+  const parsed = zamg.parse(storecsv);
+  const date = zamg.getDate(parsed[0].Datum, parsed[0].Zeit);
+  const year = date.getFullYear();
+  const month = (date.getMonth() + 1).toString().padStart(2, '0');
+  const day = date.getDate().toString().padStart(2, '0');
+
+  const dateString = `${year}-${month}-${day}`;
+  const fileName = `data/${dateString}.csv`;
 
   try {
     await access(fileName);
@@ -39,6 +45,6 @@ const {access, readFile, writeFile} = require('fs/promises');
 
   if (storeData) {
     await writeFile(fileName, storecsv, {flag: 'a'});
-    console.log(`Write data for ${parsed[0].Datum} ${parsed[0].Zeit}`);
+    console.log(`Write data for ${dateString}`);
   }
 })();
