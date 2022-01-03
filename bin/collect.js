@@ -16,8 +16,11 @@ const {access, readFile, writeFile} = require('fs/promises');
   const year = date.getFullYear();
   const month = (date.getMonth() + 1).toString().padStart(2, '0');
   const day = date.getDate().toString().padStart(2, '0');
+  const hours = date.getHours();
+  const minutes = date.getMinutes();
 
   const dateString = `${year}-${month}-${day}`;
+  const timeString = `${hours}:${minutes}`;
   const fileName = `data/${dateString}.csv`;
 
   try {
@@ -45,6 +48,6 @@ const {access, readFile, writeFile} = require('fs/promises');
 
   if (storeData) {
     await writeFile(fileName, storecsv, {flag: 'a'});
-    console.log(`Write data for ${dateString}`);
+    console.log(`Write data for ${dateString} ${timeString}`);
   }
 })();
