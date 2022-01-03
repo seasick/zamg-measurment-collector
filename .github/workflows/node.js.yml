@@ -28,4 +28,4 @@ jobs:
       with:
         add: 'data'
         default_author: github_actions
-        message: 'chore: add ${{ env.current_date }} measurment data'
+        message: 'chore: add measurment data of "${{ env.current_date }}"'
